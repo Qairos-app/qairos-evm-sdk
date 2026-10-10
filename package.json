@@ -1,0 +1,61 @@
+{
+  "name": "@qairos-app/evm-sdk",
+  "version": "0.1.0",
+  "description": "Typed Ethereum contract interfaces and a browser-compatible Qairos API client.",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Qairos",
+    "email": "support@qairos.tech"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qairos-app/qairos-evm-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Qairos-app/qairos-evm-sdk/issues"
+  },
+  "homepage": "https://github.com/Qairos-app/qairos-evm-sdk#readme",
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@10.26.1",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/*.test.mjs",
+    "validate": "pnpm typecheck && pnpm build && pnpm test",
+    "release:package": "pnpm build && node scripts/package-release.mjs"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "third-party",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "SECURITY.md",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {
+    "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "25.9.6"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  }
+}
